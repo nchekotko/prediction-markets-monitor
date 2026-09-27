@@ -83,7 +83,7 @@ def test_hidden_trades_for_venues_without_prints() -> None:
     rows += [delta(KA, "k", 100, Side.BID, 0.40, 0)]  # level vanished, no trade prints
     cfg = BacktestConfig(latency_ms={KA: 0}, hidden_trade_share={KA: 0.5})
     res = Backtester(rows, {}, OneQuote(0.40, 25), cfg).run()
-    # 50 of the 100 decrease treated as trades -> consumes queue ahead only, then crossing? no:
+    # 50 of the 100 decrease are hidden trades -> they only consume the 100 ahead of us
     assert res.n_fills == 0
     cfg_all = BacktestConfig(latency_ms={KA: 0}, hidden_trade_share={KA: 1.0})
     rows2 = snap(KA, "k", 0, [(0.40, 100)], [(0.42, 100)]) + [
