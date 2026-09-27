@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Recorded data (large) - only data/sample/ is committed
+data/*
+!data/sample/
+scratch/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
