@@ -1,0 +1,18 @@
+# Manual cross-venue mapping overrides.
+#
+# [[pair]]  forces a match (confidence 1.0, source = "override"); risk flags are still computed.
+# [[block]] forbids an automatic match.
+# Keys are "<venue>:<market_id>" (Polymarket CLOB token id / Kalshi ticker).
+
+# Fed decision, October 2026 meeting.
+# Polymarket says "50+ bps", Kalshi says ">25bps". With 25 bp steps these are the same bucket,
+# but the numeric gate cannot know that, so the pairs are pinned by hand.
+[[pair]]
+a = "polymarket:17010377994663817312158123655937348199252960045746746128731746451645055725586"
+b = "kalshi:KXFEDDECISION-26OCT-C26"
+note = "decrease 50+ bps == Cut >25bps"
+
+[[pair]]
+a = "polymarket:18246296022868501258060085368606280205967114341141276439803424448463050819498"
+b = "kalshi:KXFEDDECISION-26OCT-H26"
+note = "increase 50+ bps == Hike >25bps"
